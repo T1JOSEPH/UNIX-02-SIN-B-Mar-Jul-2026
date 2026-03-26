@@ -20,3 +20,5 @@ trust
 q
 gpg --sign-key 8877B3D2D00354939A4A0DBCF8FF2318CE917242
 gpg --verify doc_no_cifrado_firmado_Arthur.txt
+$ gpg --output doc_no_cifrado_firmado_binario.txt --sign
+doc_no_cifrado.txt
