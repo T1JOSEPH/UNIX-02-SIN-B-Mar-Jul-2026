@@ -15,3 +15,6 @@ gpg --output doc_cifrado.txt --encrypt --recipient beltranartfire@hotmail.com "h
 gpg --decrypt doc_cifrado.txt       #desenecripta 
 cat doc_no_cifrado_firmado.txt
 gpg --verify doc_no_cifrado_firmado_Arthur.txt
+ gpg --edit-key 8877B3D2D00354939A4A0DBCF8FF2318CE917242
+trust
+q
