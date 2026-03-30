@@ -1,8 +1,8 @@
-sudo apt update #Aquí lo que hago es actualizar la lista de paquetes del sistema.
-sudo apt upgrade #Aquí hay un error: debería ser upgrade.
-sudo apt install parted #Aquí estoy instalando parted, que es una herramienta para ver discos y/o las partciones
-sudo parted -l && echo -e "\n---\n" && lsblk -f && echo -e "\n---\n" #Ejecuta varios comandos en cadena para analizar el disco, pero de forma ordenada.
-
+sudo apt update # Here I update the system's package list.
+sudo apt upgrade # This command upgrades all installed packages to their latest versions.
+sudo apt install parted #Aquí estoy instalando part# Here I install parted, which is a tool used to manage disks and partitions.
+sudo parted -l && echo -e "\n---\n" && lsblk -f && echo -e "\n---\n" #Executes multiple commands in sequence to analyze the disk in an organized way.
+[ -d /sys/firmware/efi ] && echo "UEFI" || echo "BIOS" #This checks if the system is using UEFI or BIOS
 
 
 
