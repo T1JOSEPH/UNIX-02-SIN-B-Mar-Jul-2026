@@ -25,3 +25,10 @@ boot               go   lib.usr-is-merged  media  proc  sbin  sys               
 ls /etc | head -20 #lists the files in the /etc folder and displays only the first 20 results.
 ls /dev | head -20 #lists the files in the /dev folder and displays only the first 20 results.
 ls -la #shows all files (including hidden ones)
+sudo apt update #update the list of available packages.
+sudo apt upgrade #install updates for already installed packages.
+sudo apt install -y git vim make gcc libncurses-dev flex bison bc cpio libelf-dev libssl-dev syslinux dosfstools qemu-system-x86
+#install several necessary tools
+git clone --depth 1 https://github.com/torvalds/linux.git #downloads the Linux kernel source code quickly
+cd linux #enters the downloaded project folder.
+make menuconfig #opens an interactive menu to configure the kernel before building it.
