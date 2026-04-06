@@ -9,3 +9,6 @@ ls -lai #isted all files in the directory with detailed information
 1572927 drwxrwxrwx+ 2 codespace codespace 4096 Apr  6 12:34 .
 1572874 drwxrwxrwx+ 4 codespace root      4096 Apr  6 12:34 .. #This result shows the information of the current directory and its parent directory after using ls -lai, including basic details such as permissions, owner and date, confirming that we are inside the created folder and viewing its contents
 stat .
+mkdir -p /tmp/prueba/sub1/tmp/prueba/sub2 #create multiple folders within /tmp/test, including intermediate ones if they do not exist.
+stat /tmp/prueba #displays detailed directory information /tmp/test to verify that it was created correctly.
+man mkdir #muestra el manual del comando mkdir, con su uso, opciones y descripción.
