@@ -11,12 +11,18 @@ ls --help #quick help
 man ls #full manual
 q #exit the manual
 man git-clone #opens the full manual page for the git clone command
-/--depth Clones a repository into a newly created directory, creates remote-tracking branches for each branch in the
-       forked from the cloned repository’s currently active branch.
+/--depth 
+       #Clones a repository into a newly created directory, creates remote-tracking branches for each branch in the
+       #forked from the cloned repository’s currently active branch.
 
-       After the clone, a plain git fetch without arguments will update all the remote-tracking branches, and a git
-       pull without arguments will in addition merge the remote master branch into the current master branch, if any
-       (this is untrue when "--single-branch" is given; see below).
+       #After the clone, a plain git fetch without arguments will update all the remote-tracking branches, and a git
+       #pull without arguments will in addition merge the remote master branch into the current master branch, if any
+       #(this is untrue when "--single-branch" is given; see below).
 
-       This default configuration is achieved by creating references to the remote branch heads under
-       refs/remotes/origin and by initializing remote.origin.url and remote.origin.fetch configuration variables.
+       #This default configuration is achieved by creating references to the remote branch heads under
+       #refs/remotes/origin and by initializing remote.origin.url and remote.origin.fetch configuration variables.
+chmod #Change mode
+chmod +x script2_boot.sh #gives execute permission to everyone
+chmod u+x script2_boot.sh #gives execute permission only to the user (owner)
+chmod o-r secreto.txt #removes read permission from others
+chmod u+rw,go-rwx script2_boot.sh #user: read & write, group/others: no permissions
