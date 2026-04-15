@@ -26,3 +26,7 @@ chmod +x script2_boot.sh #gives execute permission to everyone
 chmod u+x script2_boot.sh #gives execute permission only to the user (owner)
 chmod o-r secreto.txt #removes read permission from others
 chmod u+rw,go-rwx script2_boot.sh #user: read & write, group/others: no permissions
+sudo sh -c 'echo "hola" > /etc/archivo_protegido #It works because sudo runs the whole command as root, including the > redirection, so the file can be written without permission errors 
+echo "hola" | sudo tee /etc/archivo_protegido >/dev/null #Writes as root and hides output
+echo "hola" | sudo tee /etc/archivo_protegido  #Writes as root and prints "hola"
+sudo cat /etc/archivo_protegido #Displays the protected file content
