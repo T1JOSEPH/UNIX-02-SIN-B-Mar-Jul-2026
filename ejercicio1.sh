@@ -9,3 +9,8 @@ ls -l hola.sh #shows file details and permissions
 chmod +x hola.sh #adds execute permission to the file
 ls -l hola.sh #verifies that execute permission was added
 ./hola.sh #runs the script in the current directory
+ls /etc #lists all files and directories inside /etc
+sudo touch /etc/prueba.txt #creates a file in /etc with root privileges
+mkdir ~/mi_carpeta #creates a new folder in your home directory
+sudo apt update #updates the package list from repositories
+sudo apt install cowsay #installs the cowsay package on the system
