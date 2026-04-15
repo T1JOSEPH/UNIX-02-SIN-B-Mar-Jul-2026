@@ -32,3 +32,6 @@ echo "hola" | sudo tee /etc/archivo_protegido  #Writes as root and prints "hola"
 sudo cat /etc/archivo_protegido #Displays the protected file content
 sudo sh -c 'echo "chao" >> /etc/archivo_protegido' #It works because sudo executes the entire command with root privileges, and the >> operator appends the text to the file instead of replacing what is already inside.
 sudo cat /etc/archivo_protegido
+sudo su - #switches to the root user with full privileges and loads root’s environment
+echo "$HOME" #expands the variable and prints your home directory
+echo '$HOME' #does not expand it, prints the text $HOME literally
