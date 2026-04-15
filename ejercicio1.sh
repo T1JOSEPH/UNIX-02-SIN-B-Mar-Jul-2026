@@ -6,6 +6,6 @@ chmod +x hola.sh #since I do not execute the previous command with this one, we 
 ./hola.sh #now if you run it without problems
 ###################
 ls -l hola.sh #shows file details and permissions
-chmod +x hola.sh
+chmod +x hola.sh #adds execute permission to the file
 ls -l hola.sh
 ./hola.sh
