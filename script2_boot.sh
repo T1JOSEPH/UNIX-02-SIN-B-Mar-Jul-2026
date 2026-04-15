@@ -30,3 +30,4 @@ sudo sh -c 'echo "hola" > /etc/archivo_protegido #It works because sudo runs the
 echo "hola" | sudo tee /etc/archivo_protegido >/dev/null #Writes as root and hides output
 echo "hola" | sudo tee /etc/archivo_protegido  #Writes as root and prints "hola"
 sudo cat /etc/archivo_protegido #Displays the protected file content
+sudo sh -c 'echo "chao" >> /etc/archivo_protegido' #It works because sudo executes the entire command with root privileges, and the >> operator appends the text to the file instead of replacing what is already inside.
