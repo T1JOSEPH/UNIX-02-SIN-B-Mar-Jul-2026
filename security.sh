@@ -7,4 +7,10 @@ id -u // the id -u command is used to display the user id of the current user
 id -g // the id -g command is usted to display the main group id of the current user
 id -G // the id -G command is used to display the second group id
 The result is 0 because the user is root.
+cat /etc/group | grep codespace // It is used to search for the word codespace in the /etc/group file and display the line that contains information about the group codespace
+cat /etc/gshadow // It is used to display the contents of the /etc/gshadow file, which contains the shadow password information
+mkdir ~/proyecto_unix/ // the mkdir command is usted to create a new directory called proyecto_unix in the home
+ls -la ~/proyecto_unix/ // the ls -la command is used to display all the information about the proyecto_unix
+
+
 
