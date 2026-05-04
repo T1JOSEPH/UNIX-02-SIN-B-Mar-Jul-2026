@@ -1,0 +1,2 @@
+id // The id command is used to display the user id, main group id, and second group id in the terminal
+cat /etc/passwd | head -10 // the cat command is used to display the contents into /etc/passwd file and pipeline give the head information
