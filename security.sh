@@ -80,5 +80,6 @@ id
   touch ~/lab_chgrp/proyectos/informe.txt
                                                                                                                           
  touch ~/lab_chgrp/proyectos/deploy.sh  
-
- 
+ #see the initial status -- all have users groups
+  ls -la ~/lab_chgrp/proyectos/
+ls -la ~/lab_chgrp/reportes/
