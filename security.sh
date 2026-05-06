@@ -38,3 +38,9 @@ addgroup --gid 2100 marketing
 addgroup --system cache_web
 #verify
 grep "diseno\|marketing\|cache_web" /etc/group
+
+#See which group the current user belongs to.
+groups
+id
+#add user to group with usermod (low level)
+ 
