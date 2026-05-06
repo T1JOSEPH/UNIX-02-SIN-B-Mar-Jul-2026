@@ -46,3 +46,54 @@ sudo su - (Sudo su - give us the user root)
 echo "$HOME" (We can use this code if we want a new enviroment in codespaces)
 echo '$HOME' (We can create a string with  '')
  
+boot-exploration (27-04-2026)
+umask --> 0022 #When yo create a file/directory you can subtract permission 725 - 705 --> 020
+touch archivo1 #Try to touch the file if the file dosent exist crete this file
+mkdir directorio1 #Create a directory
+ls-l #List of the files and directorys in long format
+#Search the problem un the browser and you can find the solution for this problem
+https://github.com/orgs/community/discussions/26026 
+sudo apt-get update
+sudo apt-get upgrade #Missing step
+sudo apt-get install acl
+sudo chown -R $(whoami) .
+sudo setfacl -bnR .
+
+umask 077 #Change the permission with umask 
+touch secreto.txt #Create a new file but when you crete the file this are created with the 077 permission 677-077 = 700
+mkdir privado #Same as the last one 777-077 = 700
+ls -l #List all the files 
+-rw------- 1 codespace codespace     0 Apr 27 12:59 secreto.txt
+drwx------ 2 codespace codespace  4096 Apr 27 12:59 privado
+
+chown #Change the owner. Usually only the root can change it
+chgrp #Change group 
+
+whoami
+echo "Hola" > mi_archivo #Create a file with the text/message "Hola"
+ls -l mi_archivo #List only this file in long format
+
+sudo useradd -m -s /usr/bin/zsh luna #Add new user with a home directory and define the shell lune is about to use
+sudo chown luna mi_archivo #Change the user luna instead of Codespaces
+ls -l mi_archivo
+
+groups #See the groups 
+newgrp grupo_test #Crete a new group called grupo_test 
+groupadd grupo_test #Add the group
+groups #See all the groups again
+touch comun #Create a file called comun
+ls -l comun #List the file
+
+
+sudo chown luna:grupo_test mi_archivo #Change the owner to luna and in the group create a file mi_archivo
+ls -l mi_archivo #list the file
+-rw-r--r-- 1 luna grupo_test 5 Apr 27 13:12 mi_archivo
+#Use this if the command needs a passwrod
+sudo usermod -aG grupo_test $USER
+#Estructure
+chown usuario:grupo fichero
+
+mkdir -p proyecto/sub #Create a directory in proyecto and other folder in sub
+touch proyecto/readme proyecto/sub/datos #Use touch to create a readme in proyecto and other in /sub/datos
+sudo chown -R luna:grupo_test proyecto #Change the user in recursive to luna for the new grpuo grupo_test in proyecto
+ls -lR proyecto #Use ls to see the list with a long format with Recursive reading
