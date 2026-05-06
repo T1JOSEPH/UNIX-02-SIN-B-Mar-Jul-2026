@@ -83,3 +83,8 @@ id
  #see the initial status -- all have users groups
   ls -la ~/lab_chgrp/proyectos/
 ls -la ~/lab_chgrp/reportes/
+
+#change a group from the file
+chgrp desarrolladores ~/lab_chgrp/proyectos/app.py
+                                                                                                                          
+ ls -la ~/lab_chgrp/proyectos/   
