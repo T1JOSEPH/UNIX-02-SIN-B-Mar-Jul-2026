@@ -63,4 +63,9 @@ id
  id root
 
  #Now the error is usermod whitin -a
- 
+ usermod -G desarrolladores root
+ id root #lost other groups
+
+ #restore
+ usermod -aG diseno,marketing,grupo_temporal root
+ id root
