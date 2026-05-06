@@ -87,4 +87,13 @@ ls -la ~/lab_chgrp/reportes/
 #change a group from the file
 chgrp desarrolladores ~/lab_chgrp/proyectos/app.py
                                                                                                                           
- ls -la ~/lab_chgrp/proyectos/   
+ ls -la ~/lab_chgrp/proyectos/  
+#create this groups using=
+chgrp diseno ~/lab_chgrp/proyectos/config.json ~/lab_chgrp/reportes/informe.txt
+ls -la ~/lab_chgrp/proyectos/
+ls -la ~/lab_chgrp/reportes/ 
+#change all the directories
+chgrp -R desarrolladores ~/lab_chgrp/scripts/ 
+ls -laR ~/lab_chgrp/scripts/ 
+#change to verbosely to see the change
+chgrp -Rv diseno ~/lab_chgrp/reportes/
