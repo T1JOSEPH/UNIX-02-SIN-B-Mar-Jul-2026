@@ -12,5 +12,9 @@ cat /etc/gshadow // It is used to display the contents of the /etc/gshadow file,
 mkdir ~/proyecto_unix/ // the mkdir command is usted to create a new directory called proyecto_unix in the home
 ls -la ~/proyecto_unix/ // the ls -la command is used to display all the information about the proyecto_unix
 
-
-
+# groupadd [options] name_group
+#Create a simple group
+sudo groupadd desarrolladores
+sudo groupadd -g 2000 operaciones #specific GID
+#grupo de sistema (GID < 1000)
+sudo groupadd --system servicios servicios_web
