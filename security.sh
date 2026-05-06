@@ -16,7 +16,7 @@ ls -la ~/proyecto_unix/ // the ls -la command is used to display all the informa
 #Create a simple group
 sudo groupadd desarrolladores
 sudo groupadd -g 2000 operaciones #specific GID
-#grupo de sistema (GID < 1000)
+#group system (GID < 1000)
 sudo groupadd --system servicios servicios_web
 #Verify files
 grep "desarrolladores\|operaciones\|servicios_web" /etc/group
@@ -30,3 +30,11 @@ grep "GID_MIN\|GID_MAX\|SYS_GID" /etc/login.defs
 #SYS_GID_MAX = 999
 #GID_MIN = 1000
 #GID_MAX = 60 000
+
+#addgroup [options] name_group
+#create groups with addgroup
+addgroup diseno
+addgroup --gid 2100 marketing
+addgroup --system cache_web
+#verify
+grep "diseno\|marketing\|cache_web" /etc/group
