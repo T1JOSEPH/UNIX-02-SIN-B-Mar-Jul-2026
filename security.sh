@@ -43,4 +43,24 @@ grep "diseno\|marketing\|cache_web" /etc/group
 groups
 id
 #add user to group with usermod (low level)
+  usermod -aG desarrolladores root
+  usermod -aG diseno root
+#-a (append)
+#Within -a, usermod replace all the groups of the user
+#with -a, add to the group keeping the files
+#verify a change
+ grep "desarrolladores\|diseno" /etc/group
+
+ #add users to groups with adduser (high level, debian)
+ sudo adduser root marketing
+ #see the current status
+ adduser root marketing
+ grep root /etc/group
+
+ #create a temporary group for the demo
+ groupadd grupo_temporal
+ usermod -aG grupo_temporal root
+ id root
+
+ #Now the error is usermod whitin -a
  
