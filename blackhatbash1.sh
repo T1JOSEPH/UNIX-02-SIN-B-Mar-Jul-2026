@@ -1,5 +1,6 @@
 #!/bin/bash -x 
 #This line is called a shebang. It tells the system to run the script using Bash, and the -x option shows each command before it is executed for debugging purposes.
+set -x
 bash --version 
 env 
 echo ${SHELL} 
@@ -14,3 +15,5 @@ bash -n script.sh #Checks the script for syntax errors without executing it. It 
 [Jose] UNIX-02-SIN-B-Mar-Jul-2026 # bash -n script.sh  
 script.sh: line 3: unexpected EOF while looking for matching `"'
 [Jose] UNIX-02-SIN-B-Mar-Jul-2026 # 
+bash -x script.sh #Executes the script and displays each command before running it. It is mainly used for debugging and tracking how the script works step by step.
+set +x
