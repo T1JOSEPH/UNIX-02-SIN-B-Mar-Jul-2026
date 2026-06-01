@@ -222,7 +222,7 @@ RUN chsh -s /usr/bin/zsh/ root
 
 RUN cat>> /root/.zshrc <<'EOF'
 
-PROMPT='%F{cyan}[Jose_Vaca]%f %F{yellow}%1~%f %(?.%F{green}ok%f.%F{red}notok %?%f) %# '
+PROMPT='%F{cyan}[Jose]%f %F{yellow}%1~%f %(?.%F{green}ok%f.%F{red}notok %?%f) %# '
 EOF
 
 CMD ["/usr/bin/zsh"]
