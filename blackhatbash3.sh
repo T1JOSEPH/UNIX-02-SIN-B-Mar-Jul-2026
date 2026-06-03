@@ -19,4 +19,4 @@ $ root_directory=$(ls -ld /)
 $ echo "${root_directory}"
 
 [Jose] UNIX-02-SIN-B-Mar-Jul-2026 ✓ $ echo "${root_directory}"
-drwxr-xr-x 1 root root 4096 Jun  1 12:27 /[Jose] UNIX-02-SIN-B-Mar-Jul-2026 ✓ $
+drwxr-xr-x 1 root root 4096 Jun  1 12:27 /[Jose] UNIX-02-SIN-B-Mar-Jul-2026 ✓ 
