@@ -60,8 +60,9 @@ ENV DEBIAN_FRONTEND=noninteractive \
 RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
     | debconf-set-selections
     
-```
-# === Basic UNIX utilities ===
+# ----------------------------------------------------------------------------
+# Basic UNIX utilities 
+# ----------------------------------------------------------------------------
 # These packages provide many of the commands that are commonly used
 # in Linux systems and shell scripting.
 #
