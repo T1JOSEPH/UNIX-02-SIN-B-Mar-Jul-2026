@@ -321,15 +321,22 @@ RUN git config --system --add safe.directory '*' \
  && git config --system init.defaultBranch main \
  && git config --system pull.rebase false \
  && git lfs install --system
- 
+
 # ----------------------------------------------------------------------------
-# CMD: comando que se ejecuta por defecto al arrancar el contenedor
+# Change the default shell
 # ----------------------------------------------------------------------------
-# Lanza una shell bash interactiva. Codespaces la sobrescribe con su
-# propia terminal integrada de VS Code, pero es buena práctica dejarla
-# definida para que la imagen sea usable también con Docker puro.
-# Prompt del curso para bash
-RUN chsh -s /usr/bin/zsh/ root
+# By default many Linux systems start with Bash.
+#
+# Here I change the default login shell for the root user to Zsh.
+#
+# Zsh provides additional customization features, improved tab
+# completion and a more flexible command-line experience.
+#
+# This means that new terminal sessions will automatically start
+# using Zsh instead of Bash.
+#
+# (Black Hat Bash Ch.1: shells and command interpreters)
+RUN chsh -s /usr/bin/zsh root
 
 RUN cat>> /root/.zshrc <<'EOF'
 
