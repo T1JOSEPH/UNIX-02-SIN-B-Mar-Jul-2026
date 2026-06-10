@@ -46,18 +46,19 @@ ENV DEBIAN_FRONTEND=noninteractive \
     LANG=es_ES.UTF-8 \
     LC_ALL=es_ES.UTF-8 \
     TERM=xterm-256color
-
+    
 # ----------------------------------------------------------------------------
-# Pre-respuesta a una pregunta interactiva de Wireshark
+# Configure Wireshark installation in advance
 # ----------------------------------------------------------------------------
-# Wireshark/tshark PREGUNTA durante su instalación si los usuarios
-# normales (no-root) deben poder capturar paquetes. Como en el contenedor
-# siempre somos root, respondemos "false" POR ADELANTADO usando
-# debconf-set-selections para que no detenga el build esperando input.
+# Some packages normally display questions during installation.
+# debconf-set-selections allows predefined answers to be supplied before
+# installation begins.
+#
+# This prevents the build process from stopping and waiting for user input.
+# Since the container runs as root, packet capture permissions for normal
+# users are not required.
 RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
     | debconf-set-selections
-
-
 # ----------------------------------------------------------------------------
 # RUN: ejecutar comandos durante la construcción de la imagen
 # ----------------------------------------------------------------------------
