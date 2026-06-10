@@ -364,7 +364,17 @@ RUN cat >> /root/.zshrc <<'EOF'
 PROMPT='%F{cyan}[Jose]%f %F{yellow}%1~%f %(?.%F{green}ok%f.%F{red}notok %?%f) %# '
 EOF
 
-
+# ----------------------------------------------------------------------------
+# Default startup command
+# ----------------------------------------------------------------------------
+# CMD specifies the command that will run when a container starts.
+#
+# Unlike RUN, which executes while the image is being built, CMD
+# executes later when a container is launched from the finished image.
+#
+# In this case I want Zsh to start automatically so users enter
+# directly into the configured shell environment.
+#
+# (Black Hat Bash Ch.3: images versus running containers)
 CMD ["/usr/bin/zsh"]
-
 
