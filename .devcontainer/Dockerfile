@@ -298,18 +298,30 @@ SHELL ["/bin/bash", "-c"]
 # users working in the development environment.
 WORKDIR /workspaces
 
-# Configuración de Git para el contenedor:
-# - safe.directory *: confía en cualquier repo montado (necesario porque
-#   /workspaces/... tiene un UID distinto al de root dentro del container).
-# - init.defaultBranch main: evita warnings de "master vs main" en git init.
-# - pull.rebase false: merge por defecto al hacer pull (más intuitivo)
-# - git lfs install --system: registra los hooks de LFS globalmente para
-#   que, si un repo los necesita, funcionen sin sorpresas.
+# ----------------------------------------------------------------------------
+# Git configuration
+# ----------------------------------------------------------------------------
+# In this step I configure Git for the entire container.
+#
+# safe.directory '*' tells Git to trust repositories mounted from
+# Codespaces or Docker volumes. This prevents ownership warnings that
+# can appear when the repository owner inside the container is different
+# from the original owner on the host system.
+#
+# init.defaultBranch main makes Git create new repositories using
+# "main" as the default branch name instead of older defaults.
+#
+# pull.rebase false keeps the standard merge behavior when running
+# git pull. I find this easier to understand than automatic rebasing.
+#
+# git lfs install --system enables Git Large File Storage globally.
+# This allows repositories that use large files to work correctly
+# without requiring additional setup.
 RUN git config --system --add safe.directory '*' \
  && git config --system init.defaultBranch main \
  && git config --system pull.rebase false \
  && git lfs install --system
-
+ 
 # ----------------------------------------------------------------------------
 # CMD: comando que se ejecuta por defecto al arrancar el contenedor
 # ----------------------------------------------------------------------------
