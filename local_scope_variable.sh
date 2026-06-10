@@ -12,5 +12,4 @@ print_name(){
 
 print_name
 echo "Variable ${name} will not be printed because it is a local variable."
-[Jose] UNIX-02-SIN-B-Mar-Jul-2026 ✓ $ 
 
