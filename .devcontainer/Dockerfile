@@ -46,7 +46,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     LANG=es_ES.UTF-8 \
     LC_ALL=es_ES.UTF-8 \
     TERM=xterm-256color
-    
+
 # ----------------------------------------------------------------------------
 # Configure Wireshark installation in advance
 # ----------------------------------------------------------------------------
@@ -59,63 +59,60 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # users are not required.
 RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
     | debconf-set-selections
-# ----------------------------------------------------------------------------
-# RUN: ejecutar comandos durante la construcción de la imagen
-# ----------------------------------------------------------------------------
-# Aquí instalamos TODO el software del curso en un solo RUN.
+    
+```
+# === Basic UNIX utilities ===
+# These packages provide many of the commands that are commonly used
+# in Linux systems and shell scripting.
 #
-#   apt-get update          -> actualiza la lista de paquetes disponibles
-#   apt-get install         -> descarga e instala los paquetes listados
-#     -y                    -> responde "sí" automáticamente
-#     --no-install-recommends -> instala SOLO lo esencial (no los extras
-#                                sugeridos). Ahorra cientos de MB.
+# coreutils includes commands such as cat, ls, head, tail, sort,
+# cut and tr. I will probably use these commands constantly when
+# working with files and text from the terminal.
 #
-# ¿Por qué un solo RUN gigante y no 10 RUN pequeños?
-# Porque CADA RUN crea una capa nueva en la imagen. Menos capas = imagen
-# más pequeña, más rápida de construir y de descargar.
+# findutils provides tools such as find and xargs. They are useful
+# for locating files and performing operations on multiple files at
+# the same time.
 #
-# El "&&" encadena comandos: ejecuta el siguiente SOLO SI el anterior
-# terminó bien. Si algo falla, el build se detiene con error (que es lo
-# que queremos: mejor un error claro que una imagen rota).
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    \
-    # === Editores de texto y shells (intérpretes de comandos) ===
-    neovim \
-    vim \
-    zsh \
-    bash-completion \
-    \
-    # === Herramientas de 4ta generación ===
-    # Estas son las protagonistas de las Unidades 2, 3 y 4:
-    perl \
-    make \
-    gawk \
-    sed \
-    grep \
-    \
-    # === Utilidades básicas de UNIX ===
-    # coreutils trae cat, ls, head, tail, sort, cut, tr, etc.
-    # findutils trae find y xargs.
-    # procps trae ps, top, kill (gestión de procesos).
-    # less = paginador para leer archivos largos.
-    # tree = muestra directorios como árbol.
-    # jq = procesa JSON desde la línea de comandos.
-    coreutils \
-    findutils \
-    procps \
-    less \
-    tree \
-    jq \
-    \
-    # === Páginas de manual (comando `man`) ===
-    # La imagen base de Kali viene sin documentación para
-    # ahorrar espacio. La reinstalamos porque en el curso "man bash" o
-    # "man grep" es material de consulta obligada.
-    man-db \
-    manpages \
-    manpages-posix \
-    \
-    # === Red básica y utilidades de descarga ===
+# procps contains commands related to process management, including
+# ps, top and kill. These tools help monitor and control running
+# processes.
+#
+# less is a pager that makes it easier to read large files directly
+# from the terminal without opening a text editor.
+#
+# tree displays directories using a tree structure, which helps me
+# understand how files and folders are organized.
+#
+# jq is a command-line tool used to read, filter and manipulate JSON
+# data. Since many modern tools return information in JSON format,
+# jq is extremely useful.
+#
+# (Black Hat Bash Ch.1 and Ch.2: command-line tools and text processing)
+coreutils \
+findutils \
+procps \
+less \
+tree \
+jq \
+
+# === Manual pages (man command) ===
+# Many Docker images remove documentation to save disk space.
+# I install these packages because the man command is one of the
+# most useful learning resources available directly from the terminal.
+#
+# During the course I can use commands such as:
+#   man bash
+#   man grep
+#   man sed
+# to read detailed documentation without needing a web browser.
+#
+# man-db provides the man command itself, while the other packages
+# contain the documentation files.
+man-db \
+manpages \
+manpages-posix \
+
+# === Red básica y utilidades de descarga ===
     curl \
     wget \
     git \
