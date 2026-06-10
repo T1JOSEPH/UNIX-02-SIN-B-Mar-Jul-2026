@@ -6,3 +6,5 @@ echo "Checking again in 2 seconds..." # Inform the user that the script will che
 sleep 2 # Wait for 2 seconds before checking again
 done # End of the while loop
 echo "File was found! Exiting..." # Inform the user that the file was found and the loop is exiting
+#Resultado
+File was found! Exiting...
