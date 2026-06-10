@@ -1,30 +1,28 @@
 # ============================================================================
-#  Dockerfile — "receta" para construir la imagen del curso
+# Dockerfile used to build the course development container
 # ============================================================================
-#  Un Dockerfile es un archivo de texto con instrucciones paso a paso que
-#  Docker (o Codespaces) lee de arriba hacia abajo para fabricar una
-#  "imagen". Una imagen es como un molde congelado de un sistema Linux
-#  listo para usar; cada vez que abres el Codespace, se crea un
-#  "contenedor" a partir de ese molde.
+# A Dockerfile is a text file containing instructions that Docker reads
+# from top to bottom to create an image. An image is a reusable template
+# that contains an operating system, installed software and configuration.
 #
-#  Analogía: la imagen es el PLANO, el contenedor es la CASA construida
-#  con ese plano. Puedes construir muchas casas iguales a partir de un
-#  solo plano, y si destruyes una casa el plano sigue intacto.
+# When a container starts, Docker creates it from the image. The image
+# remains unchanged and can be used to create multiple containers.
 #
-#  Cada instrucción (FROM, ENV, RUN...) crea una "capa". Docker guarda
-#  esas capas en caché: si no cambias las primeras líneas, no las
-#  reconstruye y el siguiente build es casi instantáneo.
+# Docker builds images in layers. Each instruction creates a new layer
+# that can be cached and reused during future builds. This makes rebuilds
+# faster when previous instructions have not changed.
+# (Black Hat Bash Ch.3: Docker images and containers)
 # ============================================================================
 
-
 # ----------------------------------------------------------------------------
-# FROM: imagen base sobre la que vamos a construir
+# FROM: define the base image
 # ----------------------------------------------------------------------------
-# En lugar de partir de cero, partimos de la imagen oficial de Kali Linux
-# en su versión "rolling" (actualización continua, siempre al día).
-# Todo lo que instalemos más abajo se apila ENCIMA de esta base.
+# The FROM instruction selects the starting image used for the build.
+# Kali Linux is chosen because it already includes many networking,
+# security and command-line tools commonly used in cybersecurity labs.
+# The rolling version receives continuous updates.
+# (Black Hat Bash Ch.3: Kali Linux lab environment)
 FROM kalilinux/kali-rolling:latest
-
 
 # ----------------------------------------------------------------------------
 # ENV: variables de entorno permanentes dentro del contenedor
