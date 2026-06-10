@@ -12,3 +12,11 @@ echo "User is root!" # If the user is root, it prints "User is root!" to the ter
 else # If the user is not root, it executes this block.
 echo "User is not root!" # If the user is not root, it prints "User is not root!" to the terminal.
 fi # Ends the if statement.
+
+adduser jose # This command adds a new user named jose to the system.
+su - jose # This command switches the current user to jose, allowing you to test the script as a non-root user.
+#respuesta 
+User is not root! # This is the expected output when running the script as a non-root user, confirming that the function correctly identifies the user's privileges.
+#Volver al usuario root
+su - # This command switches back to the root user, allowing you to test the script as a root user.
+exit # This command exits the current user session, returning to the previous user (root in this case).
