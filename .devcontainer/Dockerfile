@@ -264,13 +264,22 @@ httpie \
 && rm -rf /var/lib/apt/lists/*
 
 # ----------------------------------------------------------------------------
-# SHELL: qué intérprete usar en los siguientes RUN
+# SHELL: choose the shell used by future RUN instructions
 # ----------------------------------------------------------------------------
-# Por defecto Docker usa /bin/sh (un shell más limitado y antiguo). Lo
-# cambiamos a bash por si agregamos más instrucciones con sintaxis
-# moderna (arrays, [[ ]], etc.).
+# Docker normally executes RUN commands using /bin/sh.
+#
+# In this container I switch to Bash because it provides more scripting
+# features and is the shell used throughout Black Hat Bash.
+#
+# Bash supports things such as arrays, improved conditional statements
+# and additional shell functionality that may not be available in a
+# basic sh environment.
+#
+# Using Bash also keeps the environment consistent with the examples
+# and exercises used during the course.
+#
+# (Black Hat Bash Ch.1: Bash shell fundamentals)
 SHELL ["/bin/bash", "-c"]
-
 
 # ----------------------------------------------------------------------------
 # WORKDIR: directorio de trabajo al entrar al contenedor
