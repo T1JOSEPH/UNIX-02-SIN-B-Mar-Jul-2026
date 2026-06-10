@@ -25,32 +25,27 @@
 FROM kalilinux/kali-rolling:latest
 
 # ----------------------------------------------------------------------------
-# ENV: variables de entorno permanentes dentro del contenedor
+# ENV: environment variables
 # ----------------------------------------------------------------------------
-# Las variables de entorno son "ajustes globales" que cualquier programa
-# del sistema puede leer. Se escriben en MAYÚSCULAS por convención.
+# Environment variables store configuration values that can be accessed
+# by programs and shell sessions inside the container.
 #
-#   DEBIAN_FRONTEND=noninteractive
-#     Le dice al instalador de paquetes (apt) "no me hagas preguntas
-#     interactivas, asume respuestas por defecto". Sin esto, algunos
-#     paquetes pausarían el build esperando que pulsemos una tecla y se
-#     quedaría colgado para siempre (porque no hay nadie mirando).
+# DEBIAN_FRONTEND=noninteractive prevents package installers from asking
+# interactive questions during automated builds.
 #
-#   LANG / LC_ALL=es_ES.UTF-8
-#     Configuran idioma y codificación de caracteres. UTF-8 es lo que
-#     permite que acentos, ñ, €, emojis, etc. se muestren bien.
+# LANG and LC_ALL define the default language and UTF-8 character encoding.
+# UTF-8 ensures proper handling of accented characters and special symbols.
 #
-#   TERM=xterm-256color
-#     Le indica a los programas que la terminal admite 256 colores, para
-#     que vim, nvim, htop, etc. se vean con todos sus colores.
+# TERM=xterm-256color informs terminal applications that 256-color support
+# is available.
 #
-# La barra invertida "\" al final de cada línea significa "esto continúa
-# en la línea siguiente". Solo es para legibilidad.
+# The "\" character continues the instruction on the next line to improve
+# readability.
+# (Black Hat Bash Ch.1: environment variables)
 ENV DEBIAN_FRONTEND=noninteractive \
     LANG=es_ES.UTF-8 \
     LC_ALL=es_ES.UTF-8 \
     TERM=xterm-256color
-
 
 # ----------------------------------------------------------------------------
 # Pre-respuesta a una pregunta interactiva de Wireshark
