@@ -338,10 +338,32 @@ RUN git config --system --add safe.directory '*' \
 # (Black Hat Bash Ch.1: shells and command interpreters)
 RUN chsh -s /usr/bin/zsh root
 
-RUN cat>> /root/.zshrc <<'EOF'
+# ----------------------------------------------------------------------------
+# Configure the Zsh environment
+# ----------------------------------------------------------------------------
+# Here I use a heredoc to append several lines directly into the
+# .zshrc configuration file.
+#
+# The <<'EOF' syntax is called a here-document. It allows multiple
+# lines of text to be redirected into a command without creating
+# a separate temporary file.
+#
+# The quotes around EOF prevent variables from being expanded while
+# the text is being written.
+#
+# (Black Hat Bash Ch.1: shell input and redirection)
+RUN cat >> /root/.zshrc <<'EOF'
 
+# Custom prompt used in the course environment.
+#
+# The prompt displays the username, the current directory and the
+# result of the previous command.
+#
+# Colors are used to make important information easier to identify
+# while working in the terminal.
 PROMPT='%F{cyan}[Jose]%f %F{yellow}%1~%f %(?.%F{green}ok%f.%F{red}notok %?%f) %# '
 EOF
+
 
 CMD ["/usr/bin/zsh"]
 
