@@ -113,66 +113,155 @@ man-db \
 manpages \
 manpages-posix \
 
-# === Red básica y utilidades de descarga ===
-    curl \
-    wget \
-    git \
-    git-lfs \
-    ca-certificates \
-    locales \
-    \
-    # === Linter (revisor automático de errores) para scripts Bash ===
-    shellcheck \
-    \
-    # === Reconocimiento y escaneo de red ===
-    # nmap = el escáner de puertos más famoso.
-    # masscan = escaneo masivo de rangos grandes de IPs.
-    nmap \
-    masscan \
-    \
-    # === Captura y análisis de paquetes de red ===
-    # tcpdump = capturador clásico por terminal.
-    # tshark = versión de terminal de Wireshark.
-    tcpdump \
-    tshark \
-    \
-    # === Utilidades de red variadas ===
-    netcat-traditional \
-    socat \
-    dnsutils \
-    whois \
-    traceroute \
-    mtr-tiny \
-    iproute2 \
-    net-tools \
-    iputils-ping \
-    \
-    # === Anonimato: Tor y similares ===
-    # tor = cliente de la red Tor.
-    # torsocks = "envoltorio" que hace pasar cualquier comando por Tor.
-    # proxychains4 = encadena múltiples proxies.
-    # obfs4proxy = ofusca el tráfico de Tor para evadir bloqueos.
-    tor \
-    torsocks \
-    proxychains4 \
-    obfs4proxy \
-    \
-    # === Cliente HTTP más legible que curl para aprender ===
-    httpie \
-    \
- # --- Después de instalar, activamos el idioma español ---
- # sed busca "# es_ES.UTF-8" en /etc/locale.gen y le quita el "#" para
- # activar esa línea. Luego locale-gen compila los archivos de idioma.
- && sed -i 's/# es_ES.UTF-8/es_ES.UTF-8/' /etc/locale.gen \
- && locale-gen \
- \
- # --- Limpieza final: reducir el tamaño de la imagen ---
- # apt deja archivos de caché que ya no necesitamos después de instalar.
- # Borrarlos aquí (en el mismo RUN) hace la capa final más pequeña.
- # Si los borráramos en otro RUN, seguirían ocupando en la capa anterior.
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
+# === Basic networking and download tools ===
+# These packages provide utilities that are commonly used when working
+# with networks, repositories and remote resources.
+#
+# curl and wget are tools used to download files or communicate with
+# web servers directly from the terminal. They are useful for testing
+# HTTP requests and downloading resources.
+#
+# git is the version control system used throughout the course to
+# track changes and collaborate on projects.
+#
+# git-lfs (Git Large File Storage) extends Git so that large files
+# can be managed more efficiently without making repositories grow
+# excessively.
+#
+# ca-certificates provides trusted certificate authorities that allow
+# HTTPS connections to be verified securely.
+#
+# locales contains language and regional settings that will later be
+# configured for the container.
+curl \
+wget \
+git \
+git-lfs \
+ca-certificates \
+locales \
 
+# === Shell script analysis ===
+# ShellCheck is a static analysis tool for shell scripts.
+# It helps detect syntax mistakes, bad practices and common bugs
+# before running a script.
+#
+# During the course it can be used to improve Bash scripts and avoid
+# many common errors.
+shellcheck \
+
+# === Network reconnaissance and scanning ===
+# Nmap is one of the most popular network scanning tools. It can be
+# used to discover hosts, identify services and detect open ports.
+#
+# Masscan performs high-speed scans and is useful when working with
+# very large IP ranges.
+#
+# These tools are frequently used during network analysis and
+# cybersecurity exercises.
+nmap \
+masscan \
+
+# === Packet capture and network analysis ===
+# tcpdump is a classic command-line packet capture tool. It allows
+# network traffic to be inspected directly from the terminal.
+#
+# tshark is the command-line version of Wireshark. It provides many
+# of the same analysis capabilities without requiring a graphical
+# interface.
+#
+# These tools are useful for understanding how protocols work and
+# for analyzing network communications.
+tcpdump \
+tshark \
+
+# === Additional networking utilities ===
+# netcat is often called the "Swiss Army knife" of networking because
+# it can create connections, listen on ports and transfer data.
+#
+# socat is similar to netcat but supports more advanced networking
+# scenarios.
+#
+# dnsutils provides tools such as dig and nslookup for DNS queries.
+#
+# whois allows information about domains and IP addresses to be
+# retrieved.
+#
+# traceroute and mtr help analyze the path that packets follow across
+# networks.
+#
+# iproute2 and net-tools provide commands for configuring and viewing
+# network interfaces.
+#
+# iputils-ping includes the ping command used to test connectivity.
+netcat-traditional \
+socat \
+dnsutils \
+whois \
+traceroute \
+mtr-tiny \
+iproute2 \
+net-tools \
+iputils-ping \
+
+# === Privacy and anonymity tools ===
+# Tor is a network designed to increase privacy by routing traffic
+# through multiple relays.
+#
+# torsocks can force certain applications to send their traffic
+# through the Tor network.
+#
+# proxychains4 allows commands to be routed through one or more
+# proxies.
+#
+# obfs4proxy helps disguise Tor traffic so that it is more difficult
+# to identify or block.
+#
+# These tools are useful for learning about privacy technologies and
+# alternative routing methods.
+tor \
+torsocks \
+proxychains4 \
+obfs4proxy \
+
+# === User-friendly HTTP client ===
+# HTTPie is an HTTP client designed to be easier to read and use than
+# traditional command-line tools.
+#
+# It is useful for learning how HTTP requests and responses work
+# because the output is presented in a more readable format.
+httpie \
+\
+# --- Enable Spanish locale after installation ---
+# After installing all required packages, I enable the Spanish locale.
+#
+# The sed command edits the locale configuration file directly.
+# It finds the Spanish locale entry and removes the "#" character
+# that keeps it disabled.
+#
+# Once the locale has been enabled, locale-gen creates the files
+# needed for the operating system to use that language and regional
+# configuration correctly.
+#
+# (Black Hat Bash Ch.2: text processing with sed)
+&& sed -i 's/# es_ES.UTF-8/es_ES.UTF-8/' /etc/locale.gen \
+&& locale-gen \
+\
+# --- Final cleanup ---
+# Package installation leaves temporary files and cached package data.
+#
+# These files are useful during installation but are no longer needed
+# once the build process is complete.
+#
+# I remove them to reduce the final image size and keep the container
+# lighter.
+#
+# Doing this cleanup inside the same RUN instruction is important
+# because Docker stores each RUN as a separate layer. If the cleanup
+# happened later, the old layer would still contain those files.
+#
+# (Black Hat Bash Ch.3: Docker layers and image optimization)
+&& apt-get clean \
+&& rm -rf /var/lib/apt/lists/*
 
 # ----------------------------------------------------------------------------
 # SHELL: qué intérprete usar en los siguientes RUN
