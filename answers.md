@@ -98,3 +98,31 @@ Explanation:
 The script uses two associative arrays indexed by student name. One array stores the total points earned and the other stores the total points possible. The percentage is calculated and an if/else chain assigns the corresponding letter grade.
 Script:
 grades.awk
+
+
+## Task 7
+
+Command:
+./run.sh Lab03-data.csv
+
+Result:
+Student    Percent    Grade
+Andrew        73.69 C
+Ava           81.43 B
+Chelsey       62.65 D
+Diana         62.08 D
+Eliza         84.16 B
+Jackson       78.64 C
+Kenji         86.45 B
+Lucia         89.53 B
+Maria         79.57 C
+Noah          63.08 D
+Priya         71.04 C
+Sam           72.90 C
+Shane         93.12 A
+Tomas         82.22 B
+
+Explanation:
+The Bash script receives the filename as an argument, executes grades.awk on that file, removes the header from the awk output, sorts the student records alphabetically, and prints the header at the top.
+Script:
+run.sh
