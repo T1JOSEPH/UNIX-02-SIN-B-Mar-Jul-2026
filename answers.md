@@ -54,3 +54,20 @@ Result:
 
 Explanation:
 The script compares the score ($4) with 60% of the maximum score ($5). If the score is below that threshold, a counter is incremented. The END block prints the total number of failing submissions.
+
+## Task 5
+
+Command:
+awk -f per_assignment.awk Lab03-data.csv
+
+Result:
+Name       Low   High  Average
+H01        46    100   82.71
+H02        55    100   77.57
+...
+Q07        12    20    15.36
+
+Explanation:
+The script uses associative arrays indexed by assignment name. It stores the minimum score, maximum score, total score, and count of submissions for each assignment. In the END block it prints the statistics and computes the average with two decimal places.
+Script:
+per_assignment.awk
