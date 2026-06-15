@@ -43,3 +43,14 @@ Chelsey    142
 
 Explanation:
 The condition $3=="FINAL" selects only FINAL submissions. printf is used to align the student name left in a 10-character field and the score right-aligned.
+
+## Task 4
+
+Command:
+awk -F',' 'NR>1 && $4 < ($5*0.60) {c++} END {print c}' Lab03-data.csv
+
+Result:
+50
+
+Explanation:
+The script compares the score ($4) with 60% of the maximum score ($5). If the score is below that threshold, a counter is incremented. The END block prints the total number of failing submissions.
