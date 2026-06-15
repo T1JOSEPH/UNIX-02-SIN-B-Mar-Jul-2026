@@ -19,3 +19,27 @@ Result:
 
 Explanation:
 An associative array named seen is used as a set. Each student name is stored once using seen[$1]=1, and the END block prints the number of unique students with length(seen).
+
+## Task 3
+
+Command:
+awk -F',' 'NR>1 && $3=="FINAL" {printf "%-10s %3d\n", $1, $4}' Lab03-data.csv
+
+Result:
+Jackson    169
+Kenji      162
+Shane      193
+Noah       116
+Lucia      200
+Priya      159
+Andrew     123
+Diana      152
+Maria      152
+Eliza      141
+Tomas      163
+Sam        152
+Ava        172
+Chelsey    142
+
+Explanation:
+The condition $3=="FINAL" selects only FINAL submissions. printf is used to align the student name left in a 10-character field and the score right-aligned.
