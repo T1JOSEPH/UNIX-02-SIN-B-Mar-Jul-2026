@@ -71,3 +71,30 @@ Explanation:
 The script uses associative arrays indexed by assignment name. It stores the minimum score, maximum score, total score, and count of submissions for each assignment. In the END block it prints the statistics and computes the average with two decimal places.
 Script:
 per_assignment.awk
+
+## Task 6
+
+Command:
+awk -f grades.awk Lab03-data.csv
+
+Result:
+Student    Percent    Grade
+Shane         93.12 A
+Diana         62.08 D
+Kenji         86.45 B
+Priya         71.04 C
+Noah          63.08 D
+Sam           72.90 C
+Maria         79.57 C
+Jackson       78.64 C
+Ava           81.43 B
+Eliza         84.16 B
+Andrew        73.69 C
+Tomas         82.22 B
+Lucia         89.53 B
+Chelsey       62.65 D
+
+Explanation:
+The script uses two associative arrays indexed by student name. One array stores the total points earned and the other stores the total points possible. The percentage is calculated and an if/else chain assigns the corresponding letter grade.
+Script:
+grades.awk
