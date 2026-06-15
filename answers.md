@@ -126,3 +126,51 @@ Explanation:
 The Bash script receives the filename as an argument, executes grades.awk on that file, removes the header from the awk output, sorts the student records alphabetically, and prints the header at the top.
 Script:
 run.sh
+
+HISTORY
+    1  ls
+    2  find . -name "Lab03-data.csv"
+    3  awk -F',' 'NR>1{c++} END{print c}' Lab03-data.csv
+    4  touch answers.md
+    5  ## Task 1
+    6  Command:
+    7  awk -F',' 'NR>1{c++} END{print c}' Lab03-data.csv
+    8  Result:
+    9  <numero>
+   10  Explanation:
+   11  NR>1 ignora la cabecera. Se incrementa un contador por cada registro y en END se imprime el total de entregas.
+   12  awk -F',' 'NR>1{c++} END{print c}' Lab03-data.csv
+   13  git add answers.md Lab03-data.csv
+   14  git commit -m "task-1"
+   15  git push origin codeberg
+   16  awk -F',' 'NR>1{seen[$1]=1} END{print length(seen)}' Lab03-data.csv
+   17  git add answers.md
+   18  git commit -m "task-2"
+   19  git push origin codeberg
+   20  awk -F',' 'NR>1 && $3=="FINAL" {printf "%-10s %3d\n", $1, $4}' Lab03-data.csv
+   21  git add answers.md
+   22  git commit -m "task-3"
+   23  git push origin codeberg
+   24  awk -F',' 'NR>1 && $4 < ($5*0.60) {c++} END {print c}' Lab03-data.csv
+   25  git add answers.md
+   26  git commit -m "task-4"
+   27  git push origin codeberg
+   28  touch per_assignment.awk
+   29  awk -f per_assignment.awk Lab03-data.csv
+   30  git add answers.md per_assignment.awk
+   31  git commit -m "task-5"
+   32  git push origin codeberg
+   33  touch grades.awk
+   34  awk -f grades.awk Lab03-data.csv
+   35  git add answers.md grades.awk
+   36  git commit -m "task-6"
+   37  git push origin codeberg
+   38  touch run.sh
+   39  chmod +x run.sh
+   40  ./run.sh Lab03-data.csv
+   41  git add answers.md run.sh
+   42  git commit -m "task-7"
+   43  git push origin codeberg
+   44  git log --oneline
+   45  ls
+   46  history
