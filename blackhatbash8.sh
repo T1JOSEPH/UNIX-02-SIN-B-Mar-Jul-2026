@@ -29,3 +29,6 @@ root       23741    1423  0 13:10 pts/0    00:00:00 grep --color=auto sleep
 jobs
 #Resultado
 [1]+  Running                 sleep 100 & # Background job 1
+fg %1
+#Resultado
+sleep 100 # The sleep command is now running in the foreground
