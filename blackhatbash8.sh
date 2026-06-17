@@ -19,3 +19,13 @@ sed '$d' log.txt
 sed '5,7d' log.txt
 sed -n '2,15 p' log.txt
 sed -i '1d' log.txt
+sleep 100 & # Run sleep in the background
+ps -ef | grep sleep # Check for the sleep process 
+# Resultado
+root           1       0  0 12:12 ?        00:00:00 /bin/sh -c echo Container started trap "exit 0" 15  exec "$@" while sleep 1 & wait $!; do :; done - #(1)
+root       23505    1423  0 13:10 pts/0    00:00:00 sleep 100 #(2)
+root       23735       1  0 13:10 ?        00:00:00 sleep 1  
+root       23741    1423  0 13:10 pts/0    00:00:00 grep --color=auto sleep
+jobs
+#Resultado
+[1]+  Running                 sleep 100 & # Background job 1
