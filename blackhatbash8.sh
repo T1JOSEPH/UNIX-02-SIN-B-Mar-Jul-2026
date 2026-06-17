@@ -35,4 +35,4 @@ sleep 100 # The sleep command is now running in the foreground
 bg %1
 #Resultado
 [1]+  Running                 sleep 100 & # Background job 1    
-
+nohup ./my_script.sh & #Run my_script.sh in the background without output to the terminal

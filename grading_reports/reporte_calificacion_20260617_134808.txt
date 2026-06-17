@@ -1,0 +1,28 @@
+REPORTE AUTOMATICO DE CALIFICACION
+Repositorio: /workspaces/UNIX-02-SIN-B-Mar-Jul-2026
+Nota final: 72.35/100
+Nivel: Aceptable
+
+Puntajes:
+- Commits e historial: 21.59/25
+- Tiempo y constancia: 13.50/15
+- Documentacion: 6.76/15
+- Pruebas: 6.50/15
+- Calidad tecnica: 11.00/15
+- Entrega y completitud: 13.00/15
+
+Metricas:
+- Commits: 85
+- Dias activos: 15
+- Promedio de archivos por commit: 1.99
+- Porcentaje de commits en ultimo dia: 10.59%
+- Lineas de codigo: 882
+- Archivos de codigo: 32
+- Archivos de prueba: 3
+- Lineas README: 3
+- TODO/FIXME/debug detectados: 10
+
+Observaciones:
+-  Hay cambios sin commit.
+- El README existe, pero esta muy corto.
+- No se detecto un archivo principal claro como main, app, index o exercise2.sh.
