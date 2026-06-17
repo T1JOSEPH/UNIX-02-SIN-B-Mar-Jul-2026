@@ -32,3 +32,7 @@ jobs
 fg %1
 #Resultado
 sleep 100 # The sleep command is now running in the foreground
+bg %1
+#Resultado
+[1]+  Running                 sleep 100 & # Background job 1    
+
