@@ -6,3 +6,6 @@ awk '{print $NF}' log.txt
 head log.txt
 awk 'NR < 10' log.txt
 grep "42.236.10.117" log.txt | awk '{print $7}'
+sed 's/Mozilla/Godzilla/g' log.txt
+sed 's/Mozilla/Godzilla/g' log.txt > newlog.txt
+cat newlog.txt
